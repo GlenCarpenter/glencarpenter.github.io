@@ -6,18 +6,25 @@ body {
 
 .glyphicon {
   font-size: 80px;
-  margin-top: 210px;
+  margin-top: 50px;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 900px;
+  margin: 30px auto;
+}
+
+.heartcontainer {
   background-color: #f28282;
   color: white;
   display: flex;
   justify-content: center;
   text-align: center;
-  width: 800px;
-  height: 500px;
-  margin: 30px auto;
+  padding: 30px;
+  height: 220px;
 }
 
 .title {
@@ -26,26 +33,10 @@ body {
   margin: auto;
 }
 
-.date {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 40px;
+.subtitle {
+  font-family: 'Pacifico', cursive; 
+  font-size: 80px;
   margin: auto;
-
-}
-
-.location {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 40px;
-  margin: auto;
-}
-
-.location a {
-  text-decoration: none;
-  color: white;
-}
-
-.location a:hover {
-  color: skyblue;
 }
 
 .heartbeat {
