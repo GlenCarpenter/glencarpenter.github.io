@@ -1,7 +1,10 @@
-body {
+.body {
+  background: #916b51;
+}
+
+.maincontainer {
   display: flex;
   justify-content: center;
-  background-repeat: no-repeat;
 }
 
 .glyphicon {
@@ -18,8 +21,8 @@ body {
 }
 
 .heartcontainer {
-  background-color: #f28282;
-  color: white;
+  background-color: #caf9ca;
+  color: #f28282;
   display: flex;
   justify-content: center;
   text-align: center;
