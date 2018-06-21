@@ -1,0 +1,105 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+}
+
+.glyphicon {
+  font-size: 80px;
+  margin-top: 210px;
+}
+
+.container {
+  background-color: #f28282;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 800px;
+  height: 500px;
+  margin: 30px auto;
+}
+
+.title {
+  font-family: 'Pacifico', cursive; 
+  font-size: 40px;
+  margin: auto;
+}
+
+.date {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 40px;
+  margin: auto;
+
+}
+
+.location {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 40px;
+  margin: auto;
+}
+
+.location a {
+  text-decoration: none;
+  color: white;
+}
+
+.location a:hover {
+  color: skyblue;
+}
+
+.heartbeat {
+  -webkit-animation: scale 1500ms infinite linear;
+  -moz-animation: scale 1500ms infinite linear;
+  -o-animation: scale 1500ms infinite linear;
+  animation: scale 1500ms infinite linear;
+}
+@-moz-keyframes scale {
+  0% {
+    -moz-transform: scale(1, 1);
+  }
+  50% {
+    -moz-transform: scale(1.5, 1.5);
+  }
+  100% {
+    -moz-transform: scale(1, 1);
+  }
+}
+
+
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1, 1);
+  }
+  50% {
+    -webkit-transform: scale(1.5, 1.5);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+}
+@-o-keyframes scale {
+  0% {
+    -o-transform: scale(1, 1);
+  }
+  50% {
+    -o-transform: scale(1.5, 1.5);
+  }
+  100% {
+    -o-transform: scale(1, 1);
+  }
+}
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  50% {
+    -webkit-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
