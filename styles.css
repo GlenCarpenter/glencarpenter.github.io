@@ -1,5 +1,9 @@
 .body {
   background: #916b51;
+  transition: background 1.5s ease;
+  -webkit-transition: background 1.5s ease;
+  -moz-transition: background 1.5s ease;
+  -o-transition: background 1.5s ease;
 }
 
 .maincontainer {
@@ -23,15 +27,20 @@
   background-color: #caf9ca;
   color: #f28282;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   padding: 25px;
+  transition: background-color 3.5s ease;
+  -webkit-transition: background-color 3.5s ease;
+  -moz-transition: background-color 3.5s ease;
+  -o-transition: background-color 3.5s ease;
 }
 
 .title {
   font-family: 'Pacifico', cursive; 
   font-size: 40px;
-  margin: auto;
+  margin: auto 40px;
 }
 
 .subtitle {
@@ -41,57 +50,139 @@
 }
 
 .heartbeat {
-  -webkit-animation: scale 1500ms infinite linear;
-  -moz-animation: scale 1500ms infinite linear;
-  -o-animation: scale 1500ms infinite linear;
-  animation: scale 1500ms infinite linear;
-}
-@-moz-keyframes scale {
-  0% {
-    -moz-transform: scale(1, 1);
-  }
-  50% {
-    -moz-transform: scale(1.5, 1.5);
-  }
-  100% {
-    -moz-transform: scale(1, 1);
-  }
+  -webkit-animation: heartbeatAndSpin 3500ms linear infinite;
+  -moz-animation: heartbeatAndSpin 3500ms linear infinite;
+  -o-animation: heartbeatAndSpin 3500ms linear infinite;
+  animation: heartbeatAndSpin 3500ms linear infinite;
 }
 
+.rainbow-text-animation {
+  -webkit-animation: rainbowText 7.5s linear 1;
+  -moz-animation: rainbowText 7.5s linear 1;
+  -o-animation: rainbowText 7.5s linear 1;
+  animation: rainbowText 7.5s linear 1;
+}
 
-@-webkit-keyframes scale {
-  0% {
-    -webkit-transform: scale(1, 1);
-  }
-  50% {
-    -webkit-transform: scale(1.5, 1.5);
-  }
-  100% {
-    -webkit-transform: scale(1, 1);
-  }
+.body-rainbow-gradient-animation {
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+  background-size: 400% 400%;
+  -webkit-animation: bodyRainbowGradient 7.5s linear 1 forwards;
+  -moz-animation: bodyRainbowGradient 7.5s linear 1 forwards;
+  -o-animation: bodyRainbowGradient 7.5s linear 1 forwards;
+  animation: bodyRainbowGradient 7.5s linear 1 forwards;
+  /* 'forwards' will keep the last frame of the animation (the gradient) 
+     until the class is removed, allowing a smooth transition back */
 }
-@-o-keyframes scale {
-  0% {
-    -o-transform: scale(1, 1);
-  }
-  50% {
-    -o-transform: scale(1.5, 1.5);
-  }
-  100% {
-    -o-transform: scale(1, 1);
-  }
+
+/* Remove old scale and spin keyframes */
+/* @-moz-keyframes scale ... up to ... @keyframes spin */
+
+/* Combined animation for heartbeat and spin */
+@-webkit-keyframes heartbeatAndSpin {
+  0% { -webkit-transform: scale(1, 1) rotate(0deg); }
+  21.43% { -webkit-transform: scale(1.5, 1.5) rotate(0deg); } /* Peak of 1st beat */
+  42.86% { -webkit-transform: scale(1, 1) rotate(0deg); }    /* End of 1st beat */
+  /* 1500ms / 3500ms = 42.857% */
+  /* (1500ms + 750ms) / 3500ms = 64.285% */
+  64.29% { -webkit-transform: scale(1.5, 1.5) rotate(0deg); } /* Peak of 2nd beat */
+  /* (1500ms + 1500ms) / 3500ms = 85.714% */
+  85.71% { -webkit-transform: scale(1, 1) rotate(0deg); }    /* End of 2nd beat, start of spin */
+  100% { -webkit-transform: scale(1, 1) rotate(360deg); } /* End of spin */
 }
-@keyframes scale {
-  0% {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
-  }
-  50% {
-    -webkit-transform: scale(1.5, 1.5);
-    transform: scale(1.5, 1.5);
-  }
-  100% {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
-  }
+
+@-moz-keyframes heartbeatAndSpin {
+  0% { -moz-transform: scale(1, 1) rotate(0deg); }
+  21.43% { -moz-transform: scale(1.5, 1.5) rotate(0deg); }
+  42.86% { -moz-transform: scale(1, 1) rotate(0deg); }
+  64.29% { -moz-transform: scale(1.5, 1.5) rotate(0deg); }
+  85.71% { -moz-transform: scale(1, 1) rotate(0deg); }
+  100% { -moz-transform: scale(1, 1) rotate(360deg); }
+}
+
+@-o-keyframes heartbeatAndSpin {
+  0% { -o-transform: scale(1, 1) rotate(0deg); }
+  21.43% { -o-transform: scale(1.5, 1.5) rotate(0deg); }
+  42.86% { -o-transform: scale(1, 1) rotate(0deg); }
+  64.29% { -o-transform: scale(1.5, 1.5) rotate(0deg); }
+  85.71% { -o-transform: scale(1, 1) rotate(0deg); }
+  100% { -o-transform: scale(1, 1) rotate(360deg); }
+}
+
+@keyframes heartbeatAndSpin {
+  0% { transform: scale(1, 1) rotate(0deg); }
+  21.43% { transform: scale(1.5, 1.5) rotate(0deg); } /* Peak of 1st beat */
+  42.86% { transform: scale(1, 1) rotate(0deg); }    /* End of 1st beat */
+  /* Second beat starts effectively at 42.86% */
+  64.29% { transform: scale(1.5, 1.5) rotate(0deg); } /* Peak of 2nd beat */
+  /* Spin starts effectively at 85.71% */
+  85.71% { transform: scale(1, 1) rotate(0deg); }    /* End of 2nd beat */
+  100% { transform: scale(1, 1) rotate(360deg); } /* End of spin */
+}
+
+@-webkit-keyframes rainbowText {
+  0% { color: #f28282; }
+  14.3% { color: orangered; }
+  28.6% { color: orange; }
+  42.9% { color: gold; }
+  57.1% { color: limegreen; }
+  71.4% { color: deepskyblue; }
+  85.7% { color: blueviolet; }
+  100% { color: #f28282; }
+}
+
+@-moz-keyframes rainbowText {
+  0% { color: #f28282; }
+  14.3% { color: orangered; }
+  28.6% { color: orange; }
+  42.9% { color: gold; }
+  57.1% { color: limegreen; }
+  71.4% { color: deepskyblue; }
+  85.7% { color: blueviolet; }
+  100% { color: #f28282; }
+}
+
+@-o-keyframes rainbowText {
+  0% { color: #f28282; }
+  14.3% { color: orangered; }
+  28.6% { color: orange; }
+  42.9% { color: gold; }
+  57.1% { color: limegreen; }
+  71.4% { color: deepskyblue; }
+  85.7% { color: blueviolet; }
+  100% { color: #f28282; }
+}
+
+@keyframes rainbowText {
+  0% { color: #f28282; }
+  14.3% { color: orangered; }
+  28.6% { color: orange; }
+  42.9% { color: gold; }
+  57.1% { color: limegreen; }
+  71.4% { color: deepskyblue; }
+  85.7% { color: blueviolet; }
+  100% { color: #f28282; }
+}
+
+@-webkit-keyframes bodyRainbowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@-moz-keyframes bodyRainbowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@-o-keyframes bodyRainbowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bodyRainbowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
